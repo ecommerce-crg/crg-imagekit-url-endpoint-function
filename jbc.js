@@ -1,3 +1,4 @@
+const legacyFolder = 'legacy-amplience';
 /**
  * URL Endpoint Function Handler
  * 
@@ -15,11 +16,26 @@
  * @returns {object} Result object with url and optional signURL flag
  */
 function handler(url, urlPrefix, context) {
+  const prefixPath = '/n6z3kgjf2/jbc/' + legacyFolder + '/';
   // Default behavior: return URL unchanged without signing
+  const parsedUrl = new URL(url);
+  if (parsedUrl.hostname === 'webmedia.jbc.be') {
+    parsedUrl.hostname = 'ik.imagekit.io';
+    parsedUrl.search = '';
+    let pathname = parsedUrl.pathname.replace('/i/jbc/', '');
+    
+    // Extract the base filename (before any slash or special characters)
+    const filename = pathname.split('/')[0];
+    pathname = prefixPath + filename + '.jpg';
+    parsedUrl.pathname = pathname;
+  }
+
+  
   return {
-    url: url,
+    url: parsedUrl.toString(),
     signURL: false
   };
 }
 
 module.exports.handler = handler;
+module.exports.legacyFolder = legacyFolder;
