@@ -1,4 +1,4 @@
-![Tests](https://github.com/ecommerce-crg/crg-imagekit-url-endpoint-function/actions/workflows/test.yml/badge.svg)
+[![Tests](https://github.com/ecommerce-crg/crg-imagekit-url-endpoint-function/actions/workflows/test.yml/badge.svg)](https://github.com/ecommerce-crg/crg-imagekit-url-endpoint-function/actions/workflows/test.yml)
 
 # URL Endpoint Function Template
 
