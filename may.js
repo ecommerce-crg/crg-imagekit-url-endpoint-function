@@ -9,13 +9,13 @@ const legacyFolder = 'legacy-amplience';
  * @returns {object} Result object with url and optional signURL flag
  */
 function handler(url, urlPrefix, context) {
-  const prefixPath = '/n6z3kgjf2/jbc/' + legacyFolder + '/';
+  const prefixPath = '/n6z3kgjf2/may/' + legacyFolder + '/';
   const parsedUrl = new URL(url);
 
   if (parsedUrl.hostname === 'webmedia.mayerline.com') {
     parsedUrl.hostname = 'ik.imagekit.io';
     parsedUrl.search = '';
-    let pathname = parsedUrl.pathname.replace('/i/jbc/', '');
+    let pathname = parsedUrl.pathname.replace('/i/may/', '');
 
     // Keep only the asset identifier before any extra path segments.
     const filename = pathname.split('/')[0];
