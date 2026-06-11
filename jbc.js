@@ -1,4 +1,4 @@
-const legacyFolder = 'legacy-amplience';
+const legacyFolder = 'marketing/legacy-amplience';
 const customHost = 'media.jbc.be';
 /**
  * URL Endpoint Function Handler

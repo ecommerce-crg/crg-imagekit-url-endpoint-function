@@ -1,4 +1,4 @@
-const legacyFolder = 'legacy-amplience';
+const legacyFolder = 'marketing/legacy-amplience';
 const customHost = 'media.mayerline.be';
 
 /**
