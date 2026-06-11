@@ -1,4 +1,4 @@
-const { handler, legacyFolder } = require('./may');
+const { handler, legacyFolder, customHost } = require('./may');
 
 describe('URL Endpoint Function Handler (Mayerline)', () => {
   // Mock context object for testing
@@ -30,7 +30,7 @@ describe('URL Endpoint Function Handler (Mayerline)', () => {
 
     const result = handler(url, urlPrefix, mockContext);
 
-    expect(result.url).toBe('https://ik.imagekit.io/n6z3kgjf2/may/' + legacyFolder + '/006401BRD_10_l_model.jpg');
+    expect(result.url).toBe('https://' + customHost + '/may/' + legacyFolder + '/006401BRD_10_l_model.jpg');
     expect(result.signURL).toBe(false);
   });
 
@@ -40,7 +40,10 @@ describe('URL Endpoint Function Handler (Mayerline)', () => {
 
     const result = handler(url, urlPrefix, mockContext);
 
-    expect(result.url).toBe('https://ik.imagekit.io/n6z3kgjf2/may/' + legacyFolder + '/MAY_HERO_MYFIT_BANNER_1.jpg');
+    const expectedUrl = 'https://' + customHost + '/may/' + legacyFolder + '/MAY_HERO_MYFIT_BANNER_1.jpg';
+    expect(result.url).toBe(expectedUrl);
+    console.log(`EXP URL: ${expectedUrl}`);
+    console.log(`ACT URL: ${result.url}`);
     expect(result.signURL).toBe(false);
   });
 });

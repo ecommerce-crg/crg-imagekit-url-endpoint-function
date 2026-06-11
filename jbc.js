@@ -1,4 +1,5 @@
 const legacyFolder = 'legacy-amplience';
+const customHost = 'media.jbc.be';
 /**
  * URL Endpoint Function Handler
  * 
@@ -16,11 +17,11 @@ const legacyFolder = 'legacy-amplience';
  * @returns {object} Result object with url and optional signURL flag
  */
 function handler(url, urlPrefix, context) {
-  const prefixPath = '/n6z3kgjf2/jbc/' + legacyFolder + '/';
+  const prefixPath = '/jbc/' + legacyFolder + '/';
   // Default behavior: return URL unchanged without signing
   const parsedUrl = new URL(url);
   if (parsedUrl.hostname === 'webmedia.jbc.be') {
-    parsedUrl.hostname = 'ik.imagekit.io';
+    parsedUrl.hostname = customHost;
     parsedUrl.search = '';
     let pathname = parsedUrl.pathname.replace('/i/jbc/', '');
     
@@ -39,3 +40,4 @@ function handler(url, urlPrefix, context) {
 
 module.exports.handler = handler;
 module.exports.legacyFolder = legacyFolder;
+module.exports.customHost = customHost;

@@ -1,4 +1,4 @@
-const { handler, legacyFolder } = require('./cks');
+const { handler, legacyFolder, customHost } = require('./cks');
 
 describe('URL Endpoint Function Handler (CKS)', () => {
   // Mock context object for testing
@@ -30,7 +30,7 @@ describe('URL Endpoint Function Handler (CKS)', () => {
 
     const result = handler(url, urlPrefix, mockContext);
 
-    expect(result.url).toBe('https://ik.imagekit.io/n6z3kgjf2/cks/' + legacyFolder + '/314327RDD_50_l.jpg');
+    expect(result.url).toBe('https://' + customHost + '/cks/' + legacyFolder + '/314327RDD_50_l.jpg');
     expect(result.signURL).toBe(false);
   });
 
@@ -40,7 +40,10 @@ describe('URL Endpoint Function Handler (CKS)', () => {
 
     const result = handler(url, urlPrefix, mockContext);
 
-    expect(result.url).toBe('https://ik.imagekit.io/n6z3kgjf2/cks/' + legacyFolder + '/CKS_SS26_DESKTOP_W22_5.jpg');
+    const expectedUrl = 'https://' + customHost + '/cks/' + legacyFolder + '/CKS_SS26_DESKTOP_W22_5.jpg';
+    expect(result.url).toBe(expectedUrl);
+    console.log(`EXP URL: ${expectedUrl}`);
+    console.log(`ACT URL: ${result.url}`);
     expect(result.signURL).toBe(false);
   });
 });

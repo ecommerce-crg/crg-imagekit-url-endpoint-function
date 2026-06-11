@@ -1,4 +1,5 @@
 const legacyFolder = 'legacy-amplience';
+const customHost = 'media.mayerline.be';
 
 /**
  * URL Endpoint Function Handler for Mayerline
@@ -9,11 +10,11 @@ const legacyFolder = 'legacy-amplience';
  * @returns {object} Result object with url and optional signURL flag
  */
 function handler(url, urlPrefix, context) {
-  const prefixPath = '/n6z3kgjf2/may/' + legacyFolder + '/';
+  const prefixPath = '/may/' + legacyFolder + '/';
   const parsedUrl = new URL(url);
 
   if (parsedUrl.hostname === 'webmedia.mayerline.com') {
-    parsedUrl.hostname = 'ik.imagekit.io';
+    parsedUrl.hostname = customHost;
     parsedUrl.search = '';
     let pathname = parsedUrl.pathname.replace('/i/may/', '');
 
@@ -31,3 +32,4 @@ function handler(url, urlPrefix, context) {
 
 module.exports.handler = handler;
 module.exports.legacyFolder = legacyFolder;
+module.exports.customHost = customHost;

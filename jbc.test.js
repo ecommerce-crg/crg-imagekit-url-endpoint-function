@@ -1,4 +1,4 @@
-const { handler, legacyFolder } = require('./jbc');
+const { handler, legacyFolder, customHost } = require('./jbc');
 
 describe('URL Endpoint Function Handler', () => {
   // Mock context object for testing
@@ -30,7 +30,7 @@ describe('URL Endpoint Function Handler', () => {
     
     const result = handler(url, urlPrefix, mockContext);
     
-    expect(result.url).toBe('https://ik.imagekit.io/n6z3kgjf2/jbc/' + legacyFolder + '/314690GLL_2_l_model.jpg');
+    expect(result.url).toBe('https://' + customHost + '/jbc/' + legacyFolder + '/314690GLL_2_l_model.jpg');
     expect(result.signURL).toBe(false);
   });
 
@@ -40,7 +40,10 @@ describe('URL Endpoint Function Handler', () => {
     
     const result = handler(url, urlPrefix, mockContext);
     
-    expect(result.url).toBe('https://ik.imagekit.io/n6z3kgjf2/jbc/' + legacyFolder + '/HB-D-NICEFAM-W21-1.jpg');
+    const expectedUrl = 'https://' + customHost + '/jbc/' + legacyFolder + '/HB-D-NICEFAM-W21-1.jpg'
+    expect(result.url).toBe(expectedUrl);
+    console.log(`EXP URL: ${expectedUrl}`);
+    console.log(`ACT URL: ${result.url}`);
     expect(result.signURL).toBe(false);
   });
 });

@@ -1,4 +1,5 @@
 const legacyFolder = 'legacy-amplience';
+const customHost = 'media.cks-fashion.com';
 
 /**
  * URL Endpoint Function Handler for CKS
@@ -9,11 +10,11 @@ const legacyFolder = 'legacy-amplience';
  * @returns {object} Result object with url and optional signURL flag
  */
 function handler(url, urlPrefix, context) {
-  const prefixPath = '/n6z3kgjf2/cks/' + legacyFolder + '/';
+  const prefixPath = '/cks/' + legacyFolder + '/';
   const parsedUrl = new URL(url);
 
   if (parsedUrl.hostname === 'webmedia.cks-fashion.com') {
-    parsedUrl.hostname = 'ik.imagekit.io';
+    parsedUrl.hostname = customHost;
     parsedUrl.search = '';
     let pathname = parsedUrl.pathname.replace('/i/cks/', '');
 
@@ -31,3 +32,4 @@ function handler(url, urlPrefix, context) {
 
 module.exports.handler = handler;
 module.exports.legacyFolder = legacyFolder;
+module.exports.customHost = customHost;
