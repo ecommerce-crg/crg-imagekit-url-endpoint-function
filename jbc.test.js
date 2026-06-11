@@ -42,6 +42,7 @@ describe('URL Endpoint Function Handler', () => {
     
     const expectedUrl = 'https://' + customHost + '/jbc/' + legacyFolder + '/HB-D-NICEFAM-W21-1.jpg'
     expect(result.url).toBe(expectedUrl);
+    console.log('INPUT URL: ' + url);
     console.log(`EXP URL: ${expectedUrl}`);
     console.log(`ACT URL: ${result.url}`);
     expect(result.signURL).toBe(false);

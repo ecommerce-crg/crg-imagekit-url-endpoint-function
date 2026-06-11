@@ -42,6 +42,7 @@ describe('URL Endpoint Function Handler (CKS)', () => {
 
     const expectedUrl = 'https://' + customHost + '/cks/' + legacyFolder + '/CKS_SS26_DESKTOP_W22_5.jpg';
     expect(result.url).toBe(expectedUrl);
+    console.log('INPUT URL: ' + url);
     console.log(`EXP URL: ${expectedUrl}`);
     console.log(`ACT URL: ${result.url}`);
     expect(result.signURL).toBe(false);
