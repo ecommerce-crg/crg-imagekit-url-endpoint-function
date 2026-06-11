@@ -1,3 +1,5 @@
+![Tests](https://github.com/ecommerce-crg/crg-imagekit-url-endpoint-function/actions/workflows/test.yml/badge.svg)
+
 # URL Endpoint Function Template
 
 Template for creating and testing ImageKit URL Endpoint Functions with unit tests and GitHub Actions CI.
